@@ -1,0 +1,1 @@
+The kpalmer412/genomics-data-hub repository is an open-source tool for centralizing, structuring, and managing biological datasets, designed for researchers and bioinformaticians needing customizable data pipelines without high costs. It serves as a lightweight alternative to commercial enterprise solutions that you may need have the resources to do so. 
