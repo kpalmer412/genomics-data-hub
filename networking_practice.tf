@@ -48,12 +48,12 @@ resource "aws_security_group" "private_sg" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] 
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
-    Name        = "Genomics-Private-SG"
-    Compliance  = "HIPAA-Ready"
+    Name       = "Genomics-Private-SG"
+    Compliance = "HIPAA-Ready"
   }
 }
 
@@ -71,10 +71,10 @@ data "aws_ami" "amazon_linux_2023" {
 }
 
 resource "aws_instance" "private_compute" {
-  ami                  = data.aws_ami.amazon_linux_2023.id
-  instance_type        = "t3.nano" # Costs ~$0.0052/hour
-  subnet_id            = module.networking.private_subnet_ids[0] # Places it in Private Subnet A
-  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
+  ami                    = data.aws_ami.amazon_linux_2023.id
+  instance_type          = "t3.nano"                               # Costs ~$0.0052/hour
+  subnet_id              = module.networking.private_subnet_ids[0] # Places it in Private Subnet A
+  iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
   vpc_security_group_ids = [aws_security_group.private_sg.id]
 
   metadata_options {
