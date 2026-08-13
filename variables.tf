@@ -9,3 +9,7 @@ variable "environment" {
   description = "Deployment environment (Dev-Sandbox, Staging, Prod)"
   default     = "Dev-Sandbox"
 }
+variable "state_bucket_name" {
+  description = "The name of the private S3 bucket holding remote state data"
+  type        = string
+}

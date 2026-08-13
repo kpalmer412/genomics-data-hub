@@ -33,8 +33,8 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      # Safely plans the change to verify your S3 backend and locks work correctly
+            # Safely plans the change to verify your S3 backend and locks work correctly
       - name: Terraform Plan
         run: terraform plan -no-color
-
-        
+        env:
+          TF_VAR_state_bucket_name: "ken-genomics-tfstate-2026"
